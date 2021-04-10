@@ -110,7 +110,8 @@ socket.onmessage = event => {
 		scoreBlue.innerHTML = '';
 		for(var i = 0; i < bestOfTemp-scoreBlueTemp; i++) {
 			let scoreNone = document.createElement('div');
-			scoreNone.setAttribute('class','scoreNone');	
+			scoreNone.setAttribute('class','scoreNone');
+
 			scoreBlue.appendChild(scoreNone);			
 		}
 		for(var i = 0; i < scoreBlueTemp; i++) {
@@ -130,6 +131,18 @@ socket.onmessage = event => {
 			let scoreNone = document.createElement('div');
 			scoreNone.setAttribute('class','scoreNone');	
 			scoreRed.appendChild(scoreNone);			
+		}
+
+		if (scoreRedTemp == bestOfTemp) {
+			let redTree = document.createElement('IMG');
+			redTree.src = 'red-win.png';
+			var oTree = document.getElementById('scoreTree');
+			document.getElementById('tree').replaceChild(redTree, oTree);
+		} else if (scoreBlueTemp == bestOfTemp) {
+			let blueTree = document.createElement('IMG');
+			blueTree.src = 'blue-win.png';
+			var oTree = document.getElementById('scoreTree');
+			document.getElementById('tree').replaceChild(blueTree, oTree);
 		}
 	}
 	if(teamNameBlueTemp !== data.tourney.manager.teamName.left) {
