@@ -22,7 +22,6 @@ let playScoreRed = document.getElementById("playScoreRed");
 
 // Graphic components
 let bottom = document.getElementById("bottom");
-let sponsor = document.getElementById("sponsor");
 
 // Chats
 let chats = document.getElementById("chats");
@@ -71,13 +70,11 @@ socket.onmessage = event => {
 			chats.style.opacity = 0;
 			playScoreBlue.style.opacity = 1;
 			playScoreRed.style.opacity = 1;
-			sponsor.style.transform = 'translateX(-50%)';
 		} else {
 			// Score invisible -> Set bg to show chats
 			chats.style.opacity = 1;
 			playScoreBlue.style.opacity = 0;
 			playScoreRed.style.opacity = 0;
-			sponsor.style.transform = 'translateX(-300%)';
 		}
 	}
 	if(starsVisibleTemp !== data.tourney.manager.bools.starsVisible) {

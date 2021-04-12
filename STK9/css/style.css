@@ -1,6 +1,5 @@
-@font-face {
-	font-family:Visby_Round;
-	src: url("../fonts/VisbyRoundCF-Bold.ttf");
+* {
+	font-family: 'Righteous', cursive;
 }
 
 body,html{
@@ -10,24 +9,22 @@ body,html{
 }
 #main{
     font-size: 30px;
-	font-family:Visby_Round;
-	font-weight: normal;
     color: white;
     width: 1920px;
     height: 1080px;
     position: relative;
 }
-/* .odometer.odometer-auto-theme{
+.odometer.odometer-auto-theme{
     font-size: 24px !important;
-    font-family:Visby_Round !important;
-    font-weight: normal !important;	
+	font-family:Visby_Round !important;
+    font-weight: bold !important;	
 }
 .odometer.odometer-auto-theme .odometer-digit .odometer-digit-inner, .odometer.odometer-theme-default .odometer-digit .odometer-digit-inner {
     padding-left: 5px !important;
     padding-right: 5px !important;
     margin-left: -5px !important;
     margin-right: -5px !important;
-} */
+}
 #top {
 	display: flex;
 	position: absolute;
@@ -97,18 +94,6 @@ body,html{
 	background-repeat: no-repeat;
 	background-size: cover;	
 }
-#logo {
-	position: absolute;
-	left: 50%;
-	transform: translateX(-50%);
-	
-	width: 200px;
-	height: 100px;
-	background-image: url('../static/logo.png');
-	background-repeat: no-repeat;
-	background-size: cover;	
-	z-index: 1;
-}
 #teamBlue {
 	position: absolute;
 	left: 200px;
@@ -120,9 +105,12 @@ body,html{
 #teamBlueName {
 	padding: 10px 30px 10px 30px;
 	width: 500px;
-	color: black;
+	color: #222;
 	background-color: white;
 	border-radius: 10px;
+}
+#teamBlueText {
+	margin-bottom:5px;
 }
 #teamRed {
 	position: absolute;
@@ -136,9 +124,12 @@ body,html{
 #teamRedName {
 	padding: 10px 30px 10px 30px;
 	width: 500px;
-	color: black;
+	color: #222;
 	background-color: white;
 	border-radius: 10px;
+}
+#teamRedText {
+	margin-bottom:5px;
 }
 
 #partner {
@@ -183,7 +174,6 @@ body,html{
 	
 	background-color: #642f9c;
 	color: white;
-    font-family:Visby_Round;
 	font-size: 40px;
 	line-height: 60px;
 	
@@ -200,7 +190,6 @@ body,html{
 
 	background-color: #642f9c;
 	color: white;
-    font-family:Visby_Round;
 	font-size: 40px;
 	line-height: 60px;
 	
@@ -248,7 +237,6 @@ body,html{
 	overflow-x: hidden;
 	padding: 5px 12px;
 	font-size: 18px;
-    font-family:Visby_Round;
     transition: ease-in-out 500ms;
 }
 
@@ -267,6 +255,7 @@ body,html{
 	display: flex;
 }
 .chatName {
+
 	color: white;
 	white-space: nowrap;
 	width: max-content;
@@ -288,7 +277,6 @@ body,html{
 .right {
 	color: #ed1855;
 }
-
 
 /*Scrollbar*/
 ::-webkit-scrollbar {
