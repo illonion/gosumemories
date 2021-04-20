@@ -20,6 +20,10 @@ let teamRed = document.getElementById("teamRed");
 let playScoreBlue = document.getElementById("playScoreBlue");
 let playScoreRed = document.getElementById("playScoreRed");
 
+// MOVING SCORE BAR
+let movingScoreBarLeft = document.getElementById("movingScoreBarLeft");
+let movingScoreBarRight = document.getElementById("movingScoreBarRight");
+
 // Graphic components
 let bottom = document.getElementById("bottom");
 
@@ -210,29 +214,30 @@ socket.onmessage = event => {
 		
 		if(playScoreBlueTemp > playScoreRedTemp) {
 			// Blue is Leading
-			playScoreBlue.style.backgroundColor = '#ad81db';
-			playScoreBlue.style.color = '#f2f1f5';
-			
-			playScoreRed.style.backgroundColor = '#4e326b';
-			playScoreRed.style.color = '#f2f1f5';
+			playScoreBlue.classList.add("leadingScore");
+			playScoreRed.classList.remove("leadingScore");
+
+			movingScoreBarLeft.style.width = (((playScoreBlueTemp - playScoreRedTemp) / (playScoreBlueTemp)) * 550) + "px";
+			movingScoreBarRight.style.width = "0px";
 		} else if (playScoreBlueTemp == playScoreRedTemp) {
 			// Tie
-			playScoreBlue.style.backgroundColor = '#4e326b';
-			playScoreBlue.style.color = '#f2f1f5';
-			
-			playScoreRed.style.backgroundColor = '#4e326b';
-			playScoreRed.style.color = '#f2f1f5';
+			playScoreBlue.classList.add("leadingScore");
+			playScoreRed.classList.add("leadingScore");
+
+			movingScoreBarLeft.style.width = "0px";
+			movingScoreBarRight.style.width = "0px";
 		} else {
 			// Red is Leading
-			playScoreBlue.style.backgroundColor = '#4e326b';
-			playScoreBlue.style.color = '#f2f1f5';
+			playScoreBlue.classList.remove("leadingScore");
+			playScoreRed.classList.add("leadingScore");
 			
-			playScoreRed.style.backgroundColor = '#ad81db';
-			playScoreRed.style.color = '#f2f1f5';
-			
+			movingScoreBarLeft.style.width = "0px";
+			movingScoreBarRight.style.width = (((playScoreRedTemp - playScoreBlueTemp) / (playScoreRedTemp)) * 550) + "px";
 		}
 	}
 	if(!scoreVisibleTemp) {
+		movingScoreBarRight.style.width = "0px";
+		movingScoreBarLeft.style.width = "0px";
 		if(chatLen != data.tourney.manager.chat.length) {
 			// There's new chats that haven't been updated
 			

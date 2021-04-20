@@ -200,16 +200,41 @@ body,html{
 	box-shadow: 0px 0px 20px -5px black;
 	z-index: 1;
 }
+#movingScoreBarLeft {
+	float:right;
+	height:12px;
+	width:1px;
+	position:absolute;
+	bottom:145px;
+	right:50%;
+	max-width:30%;
+	background-color:white;
+	color:white;
+	transition: width 0.07s;
+	border-radius: 10px 0px 0px 10px;
+}
+#movingScoreBarRight {
+	height:12px;
+	width:1px;
+	position:absolute;
+	bottom:145px;
+	left:50%;
+	max-width:30%;
+	background-color:white;
+	color:white;
+	transition: width 0.07s;
+	border-radius: 0px 10px 10px 0px;
+
+}
 #playScoreBlue {
 	position: absolute;
 	text-align: center;
 	border-radius: 25px;
 	left: 532px;
-	bottom: 110px;
+	bottom: 50px;
 	height: 66px;
 	width: 402px;
 	
-	background-color: #642f9c;
 	color: white;
 	font-size: 40px;
 	line-height: 60px;
@@ -221,11 +246,10 @@ body,html{
 	text-align: center;
 	border-radius: 25px;
 	right: 532px;
-	bottom: 110px;
+	bottom: 50px;
 	height: 66px;
 	width: 402px;
 
-	background-color: #642f9c;
 	color: white;
 	font-size: 40px;
 	line-height: 60px;
@@ -271,6 +295,10 @@ body,html{
     background-color: rgba(0,0,0,0.50);
 	border-radius: 25px;
 	overflow: hidden;
+}
+.leadingScore {
+	background-color: #ad81db;
+	transition:0.05s;
 }
 .wrap {
 	transform: translate(380px);
