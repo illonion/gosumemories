@@ -1,5 +1,15 @@
+@font-face {
+	font-family: Aller;
+	src: url("../fonts/Aller_Rg.ttf");
+}
+
+@font-face {
+	font-family: Aller_Bold;
+	src: url("../fonts/Aller_Bd.ttf");
+}
+
 * {
-	font-family: 'Righteous', cursive;
+	font-family: 'Exo 2', sans-serif;
 }
 
 body,html{
@@ -13,10 +23,11 @@ body,html{
     width: 1920px;
     height: 1080px;
     position: relative;
+	background-image: url('../static/background.png');
 }
 .odometer.odometer-auto-theme{
     font-size: 24px !important;
-	font-family:Visby_Round !important;
+	font-family:'Righteous' !important;
     font-weight: bold !important;	
 }
 .odometer.odometer-auto-theme .odometer-digit .odometer-digit-inner, .odometer.odometer-theme-default .odometer-digit .odometer-digit-inner {
@@ -30,8 +41,6 @@ body,html{
 	position: absolute;
     width: 1920px;
     height: 200px;
-	background-image: url('../static/top.png');
-	background-repeat: no-repeat;
     transition: ease-in-out 500ms;
 	z-index: 0;
 	background-size: cover;
@@ -60,38 +69,36 @@ body,html{
 	bottom: 0px;
     width: 1920px;
     height: 200px;
-	background-image: url('../static/bottomplay.png');
-	background-repeat: no-repeat;	
     transition: ease-in-out 200ms;
 	z-index: 0;
 	background-size: cover;
 }
 
 #scoreBlue {
-	box-sizing: border-box;
-	width: 50%;
-	height: 90%;
-	margin-right: 50px;
+    box-sizing: border-box;
+    width: 50%;
+    height: 60%;
+    margin-left: 60px;
     font-size: 30px;
-	display: flex;
-	justify-content: flex-end;
-	align-items: flex-end;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
     flex-wrap: wrap;
-	transition: ease-in-out 500ms;
-	transform:translateX(100px);
+    transition: ease-in-out 500ms;
+    transform:translateX(100px);
 }
 #scoreRed {
-	box-sizing: border-box;
-	width: 50%;
-	height: 90%;
-	margin-left: 50px;
+    box-sizing: border-box;
+    width: 50%;
+    height: 60%;
+    margin-right: 57px;
     font-size: 30px;
-	display: flex;
-	justify-content: flex-start;
-	align-items: flex-end;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
     flex-wrap: wrap;
-	transition: ease-in-out 500ms;
-	transform:translateX(-100px);
+    transition: ease-in-out 500ms;
+    transform:translateX(-100px);
 }
 .score {
 	width: 15px;
@@ -131,49 +138,31 @@ body,html{
 		background-color: transparent;
 	}
 }
-#teamBlue {
+
+#teamBlueName {
 	position: absolute;
 	left: 160px;
 	top: 50px;
-    font-size: 25px;
-	color: white;
-    transition: ease-in-out 500ms;
-}
-#teamBlueName {
-	padding: 10px 30px 10px 30px;
-	width: 500px;
-	color: #222;
-	background-color: white;
-	border-radius: 10px;
-}
-#teamBlueText {
-	margin-bottom:5px;
-}
-#teamRed {
-	position: absolute;
-	right: 160px;
-	top: 50px;
 	text-align: right;
-    font-size: 25px;
+    font-size: 40px;
 	color: white;
     transition: ease-in-out 500ms;
 }
 #teamRedName {
-	padding: 10px 30px 10px 30px;
-	width: 500px;
-	color: #222;
-	background-color: white;
-	border-radius: 10px;
-}
-#teamRedText {
-	margin-bottom:5px;
+	position: absolute;
+	right: 160px;
+	top: 50px;
+	text-align: right;
+    font-size: 40px;
+	color: white;
+    transition: ease-in-out 500ms;
 }
 
-#partner {
+#commentator {
 	position: absolute;
 	padding: 5px 30px 5px 30px;
 	left: 30px;
-	bottom: 130px;
+	bottom: 5px;
 	color: rgb(43,12,75);
 	background-color: white;
 	border-radius: 25px;
@@ -188,17 +177,6 @@ body,html{
 	height: 100px;
 	text-align: center;
 	align-content: center;
-}
-#nowPlayingText {
-	position: relative;
-	padding: 5px 20px 5px 20px;
-	margin: -13px 50px 0px 50px;
-	margin-bottom: -10px;
-	color: rgb(43,12,75);
-	background-color: white;
-	border-radius: 25px;
-	box-shadow: 0px 0px 20px -5px black;
-	z-index: 1;
 }
 #movingScoreBarLeft {
 	float:right;
@@ -257,6 +235,7 @@ body,html{
 }
 #mapContainer {
 	position: relative;
+	margin-top:20px;
 	padding-top: 20px;
 	height: 104px;
 	width: 100%;
@@ -339,7 +318,6 @@ body,html{
 	display: flex;
 }
 .chatName {
-
 	color: white;
 	white-space: nowrap;
 	width: max-content;
