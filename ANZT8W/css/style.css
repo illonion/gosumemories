@@ -1,17 +1,6 @@
-@font-face {
-	font-family: Aller;
-	src: url("../fonts/Aller_Rg.ttf");
-}
-
-@font-face {
-	font-family: Aller_Bold;
-	src: url("../fonts/Aller_Bd.ttf");
-}
-
 * {
 	font-family: 'Exo 2', sans-serif;
 }
-
 body,html{
     padding: 0;
     margin: 0;
