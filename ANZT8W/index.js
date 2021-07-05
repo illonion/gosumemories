@@ -184,16 +184,26 @@ socket.onmessage = event => {
 		}
 	}
 	if(teamNameBlueTemp !== data.tourney.manager.teamName.left) {
-		teamNameBlueTemp = data.tourney.manager.teamName.left;
-		teamBlueName.innerHTML = teamNameBlueTemp;
-		teamNameBlueFlagTemp = "icons/" + teamNameBlueTemp + ".png";
-		teamBlueFlag.setAttribute("src", teamNameBlueFlagTemp);
+		if (data.tourney.manager.teamName.left == "") {
+			teamBlueName.style.display = "none";
+		} else {
+			teamBlueName.style.display = "block";
+			teamNameBlueTemp = data.tourney.manager.teamName.left;
+			teamBlueName.innerHTML = teamNameBlueTemp;
+			teamNameBlueFlagTemp = "icons/" + teamNameBlueTemp + ".png";
+			teamBlueFlag.setAttribute("src", teamNameBlueFlagTemp);
+		}
 	}
 	if(teamNameRedTemp !== data.tourney.manager.teamName.right) {
-		teamNameRedTemp = data.tourney.manager.teamName.right;
-		teamRedName.innerHTML = teamNameRedTemp;
-		teamNameRedFlagTemp = "icons/" + teamNameRedTemp + ".png";
-		teamRedFlag.setAttribute("src", teamNameRedFlagTemp);
+		if (data.tourney.manager.teamName.right == "") {
+			teamRedName.style.display = "none";
+		} else {
+			teamRedName.style.display = "block";
+			teamNameRedTemp = data.tourney.manager.teamName.right;
+			teamRedName.innerHTML = teamNameRedTemp;
+			teamNameRedFlagTemp = "icons/" + teamNameRedTemp + ".png";
+			teamRedFlag.setAttribute("src", teamNameRedFlagTemp);
+		}
 	}
 	if(scoreVisibleTemp) {
 		playScoreBlueTemp = data.tourney.manager.gameplay.score.left;
