@@ -1,3 +1,10 @@
+:root {
+	--blue-color: #545fff;
+	--red-color: #f4557a;
+	--bg-color: #5e9bff;
+
+	--team-red-blue-texs: 
+}
 @font-face {
     font-family: "Nexa Bold";
     src: url("../fonts/Nexa-Bold.otf");
@@ -23,7 +30,6 @@ body,html{
     width: 1920px;
     height: 1080px;
     position: relative;
-	#text-shadow: 0px 0px 8px black;
 }
 .odometer.odometer-auto-theme{
     font-size: 24px !important;
@@ -51,7 +57,7 @@ body,html{
 	bottom: 0px;
     width: 1920px;
     height: 202px;
-	background-image: url('../static/bottomplay.png');
+	background-image: url('../static/bottomchat.png');
 	background-repeat: no-repeat;	
     transition: ease-in-out 200ms;
 	z-index: 0;
@@ -59,11 +65,11 @@ body,html{
 }
 #scoreBlue {
 	position: absolute;
-	left: 50px;
+	left: 700px;
 	top: 50px;
     font-size: 30px;
 	display: flex;
-	color: #007E93;
+	color: var(--red-color);
 	height: 100px;
 }
 #scoreNowBlue, #scoreNowRed{
@@ -77,47 +83,47 @@ body,html{
 }
 #scoreRed {
 	position: absolute;
-	right: 50px;
+	right: 700px;
 	top: 50px;
     font-size: 30px;
 	display: flex;
-	color: #8E0029;
+	color: var(--blue-color);
 }
 #teamBlue {
 	position: absolute;
-	left: 200px;
+	left: 50px;
 	top: 50px;
     font-size: 30px;
-	color: #007E93;
+	color: var(--red-color);
     transition: ease-in-out 500ms;
+	color: white;
 }
 #teamBlueName {
 	padding: 10px 30px 10px 30px;
 	width: 500px;
-	color: white;
-	background-color: #007E93;
+	background-color: var(--red-color);
 	border-radius: 25px;
 }
 #teamBlueText {
-	padding-left: 20px;
+	padding-left:20px;
 }
 #teamRedText {
-	padding-right: 20px;
+	padding-right:20px;
 }
 #teamRed {
 	position: absolute;
-	right: 200px;
+	right: 60px;
 	top: 50px;
 	text-align: right;
     font-size: 30px;
-	color: #8E0029;
+	color: var(--blue-color);
     transition: ease-in-out 500ms;
+	color: white;
 }
 #teamRedName {
 	padding: 10px 30px 10px 30px;
 	width: 500px;
-	color: white;
-	background-color: #8E0029;
+	background-color: var(--blue-color);
 	border-radius: 25px;
 }
 #commentator {
@@ -125,7 +131,7 @@ body,html{
 	padding: 5px 30px 5px 30px;
 	left: 30px;
 	bottom: 130px;
-	color: #007E93;
+	color: #5e9bff;
 	background-color: white;
 	border-radius: 25px;
 	box-shadow: 0px 0px 20px -3px black;	
@@ -144,7 +150,7 @@ body,html{
 	padding: 5px 20px 5px 20px;
 	margin: 2px 50px 0px 50px;
 	margin-bottom: -10px;
-	color: #007E93;
+	color: #5e9bff;
 	background-color: white;
 	border-radius: 25px;
 	box-shadow: 0px 0px 20px -5px black;
@@ -162,7 +168,7 @@ body,html{
 	padding-right: 15px;
 	width: 400px;
 	
-	background-color: #007E93;
+	background-color: var(--red-color);
 	color: white;
     font-family: Nexa Bold;
 	font-size: 40px;
@@ -183,7 +189,7 @@ body,html{
 	padding-right: 15px;
 	width: 400px;
 
-	background-color: #8E0029;
+	background-color: var(--blue-color);
 	color: white;
     font-family: Nexa Bold;
 	font-size: 40px;
@@ -222,17 +228,15 @@ body,html{
 	z-index: 0;
 }
 #chats {
-	background: #0A0329;
 	position: absolute;
-	bottom: 0px;
 	left: 479px;
 	width: 913px;
-	height: 142px;
+	height: 120px;
 	border-radius: 25px;
 	bottom: 2px;
 	overflow-y: scroll;
 	overflow-x: hidden;
-	padding: 5px 15px;
+	padding: 5px 20px 15px 20px;
 	font-size: 18px;
     font-family: Gothic-b, monospace;
     transition: ease-in-out 500ms;
