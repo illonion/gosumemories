@@ -24,6 +24,10 @@ let teamRed = document.getElementById("teamRed");
 let playScoreBlue = document.getElementById("playScoreBlue");
 let playScoreRed = document.getElementById("playScoreRed");
 
+// Moving Score Bar
+let movingScoreBarLeft = document.getElementById("movingScoreBarLeft");
+let movingScoreBarRight = document.getElementById("movingScoreBarRight");
+
 // Graphic components
 let bottom = document.getElementById("bottom");
 
@@ -136,31 +140,32 @@ socket.onmessage = event => {
 		animation.playScoreBlue.update(scoreBlueTemp);
 		animation.playScoreRed.update(scoreRedTemp);
 		
-		if(scoreBlueTemp > scoreRedTemp) {
+		if(playScoreBlueTemp > playScoreRedTemp) {
 			// Blue is Leading
-			playScoreBlue.style.backgroundColor = '#007E93';
-			playScoreBlue.style.color = 'white';
-			
-			playScoreRed.style.backgroundColor = 'transparent';
-			playScoreRed.style.color = '#8E0029';
-		} else if (scoreBlueTemp == scoreRedTemp) {
+			playScoreBlue.classList.add("leadingScore");
+			playScoreRed.classList.remove("leadingScore");
+
+			movingScoreBarLeft.style.width = (((playScoreBlueTemp - playScoreRedTemp) / (playScoreBlueTemp)) * 550) + "px";
+			movingScoreBarRight.style.width = "0px";
+		} else if (playScoreBlueTemp == playScoreRedTemp) {
 			// Tie
-			playScoreBlue.style.backgroundColor = '#007E93';
-			playScoreBlue.style.color = 'white';
-			
-			playScoreRed.style.backgroundColor = '#8E0029';
-			playScoreRed.style.color = 'white';
+			playScoreBlue.classList.add("leadingScore");
+			playScoreRed.classList.add("leadingScore");
+
+			movingScoreBarLeft.style.width = "0px";
+			movingScoreBarRight.style.width = "0px";
 		} else {
 			// Red is Leading
-			playScoreBlue.style.backgroundColor = 'transparent';
-			playScoreBlue.style.color = '#007E93';
+			playScoreBlue.classList.remove("leadingScore");
+			playScoreRed.classList.add("leadingScore");
 			
-			playScoreRed.style.backgroundColor = '#8E0029';
-			playScoreRed.style.color = 'white';
-			
+			movingScoreBarLeft.style.width = "0px";
+			movingScoreBarRight.style.width = (((playScoreRedTemp - playScoreBlueTemp) / (playScoreRedTemp)) * 550) + "px";
 		}
 	}
 	if(!scoreVisibleTemp) {
+		movingScoreBarRight.style.width = "0px";
+		movingScoreBarLeft.style.width = "0px";
 		if(chatLen != data.tourney.manager.chat.length) {
 			// There's new chats that haven't been updated
 			
