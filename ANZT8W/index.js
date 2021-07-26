@@ -214,25 +214,25 @@ socket.onmessage = event => {
 		
 		if(playScoreBlueTemp > playScoreRedTemp) {
 			// Blue is Leading
-			playScoreBlue.classList.add("leadingScore");
-			playScoreRed.classList.remove("leadingScore");
+			playScoreBlue.style.backgroundColor = '#ad81db';
+			playScoreRed.style.backgroundColor = '#454545';
 
-			movingScoreBarLeft.style.width = ((playScoreBlueTemp - playScoreRedTemp) / 500000 * 550) + "px";
+			movingScoreBarLeft.style.width = ((playScoreBlueTemp - playScoreRedTemp) / 320000 * 970) + "px";
 			movingScoreBarRight.style.width = "0px";
 		} else if (playScoreBlueTemp == playScoreRedTemp) {
 			// Tie
-			playScoreBlue.classList.add("leadingScore");
-			playScoreRed.classList.add("leadingScore");
+			playScoreBlue.style.backgroundColor = '#ad81db';
+			playScoreRed.style.backgroundColor = '#ad81db';
 
 			movingScoreBarLeft.style.width = "0px";
 			movingScoreBarRight.style.width = "0px";
 		} else {
 			// Red is Leading
-			playScoreBlue.classList.remove("leadingScore");
-			playScoreRed.classList.add("leadingScore");
+			playScoreBlue.style.backgroundColor = '#454545';
+			playScoreRed.style.backgroundColor = '#ad81db';
 			
 			movingScoreBarLeft.style.width = "0px";
-			movingScoreBarRight.style.width = ((playScoreRedTemp - playScoreBlueTemp) / 500000 * 550) + "px";
+			movingScoreBarRight.style.width = ((playScoreRedTemp - playScoreBlueTemp) / 320000 * 970) + "px";
 		}
 	}
 	if(!scoreVisibleTemp) {

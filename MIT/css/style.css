@@ -160,6 +160,31 @@ body,html{
 	transition: width 0.07s;
 	border-radius: 0px 10px 10px 0px;
 }
+#movingScoreBarLeft {
+	float:right;
+	height:12px;
+	width:1px;
+	position:absolute;
+	bottom:145px;
+	right:50%;
+	max-width:30%;
+	background-color:white;
+	color:white;
+	transition: width 0.07s;
+	border-radius: 10px 0px 0px 10px;
+}
+#movingScoreBarRight {
+	height:12px;
+	width:1px;
+	position:absolute;
+	bottom:145px;
+	left:50%;
+	max-width:30%;
+	background-color:white;
+	color:white;
+	transition: width 0.07s;
+	border-radius: 0px 10px 10px 0px;
+}
 #playScoreBlue {
 	position: absolute;
 	padding: 5px 30px 5px 30px;
