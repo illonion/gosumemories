@@ -24,6 +24,10 @@ let teamRed = document.getElementById("teamRed");
 let playScoreBlue = document.getElementById("playScoreBlue");
 let playScoreRed = document.getElementById("playScoreRed");
 
+// Moving Score Bar
+let movingScoreBarLeft = document.getElementById("movingScoreBarLeft");
+let movingScoreBarRight = document.getElementById("movingScoreBarRight");
+
 // Graphic components
 let bottom = document.getElementById("bottom");
 
@@ -86,13 +90,13 @@ socket.onmessage = event => {
 		if(starsVisibleTemp) {
 			scoreBlue.style.display = "flex";
 			scoreRed.style.display = "flex";
-			teamBlue.style.transform = "translateX(0)";
-			teamRed.style.transform = "translateX(0)";
+			teamBlueName.style.width = "500px";
+			teamRedName.style.width = "500px";
 		} else {
 			scoreBlue.style.display = "none";
 			scoreRed.style.display = "none";
-			teamBlue.style.transform = "translateX(-150px)";
-			teamRed.style.transform = "translateX(150px)";
+			teamBlueName.style.width = "700px";
+			teamRedName.style.width = "700px";
 		}
 	}
 	if(tempImg !== data.menu.bm.path.full){
@@ -135,32 +139,37 @@ socket.onmessage = event => {
 		
 		animation.playScoreBlue.update(scoreBlueTemp);
 		animation.playScoreRed.update(scoreRedTemp);
+
+		const bgRed = "#f4557a";
+		const bgBlue = "#545fff";
+		const bgGrey = "#ad81db";
 		
-		if(scoreBlueTemp > scoreRedTemp) {
+		if(playScoreBlueTemp > playScoreRedTemp) {
 			// Blue is Leading
-			playScoreBlue.style.backgroundColor = '#007E93';
-			playScoreBlue.style.color = 'white';
-			
-			playScoreRed.style.backgroundColor = 'transparent';
-			playScoreRed.style.color = '#8E0029';
-		} else if (scoreBlueTemp == scoreRedTemp) {
+			playScoreBlue.style.backgroundColor = bgRed;
+			playScoreRed.style.backgroundColor = bgGrey;
+
+			movingScoreBarLeft.style.width = ((playScoreBlueTemp - playScoreRedTemp) / playScoreBlueTemp / 1000000 * 960) + "px";
+			movingScoreBarRight.style.width = "0px";
+		} else if (playScoreBlueTemp == playScoreRedTemp) {
 			// Tie
-			playScoreBlue.style.backgroundColor = '#007E93';
-			playScoreBlue.style.color = 'white';
-			
-			playScoreRed.style.backgroundColor = '#8E0029';
-			playScoreRed.style.color = 'white';
+			playScoreBlue.style.backgroundColor = bgRed;
+			playScoreRed.style.backgroundColor = bgBlue;
+
+			movingScoreBarLeft.style.width = "0px";
+			movingScoreBarRight.style.width = "0px";
 		} else {
 			// Red is Leading
-			playScoreBlue.style.backgroundColor = 'transparent';
-			playScoreBlue.style.color = '#007E93';
+			playScoreBlue.style.backgroundColor = bgGrey;
+			playScoreRed.style.backgroundColor = bgBlue;
 			
-			playScoreRed.style.backgroundColor = '#8E0029';
-			playScoreRed.style.color = 'white';
-			
+			movingScoreBarLeft.style.width = "0px";
+			movingScoreBarRight.style.width = ((playScoreRedTemp - playScoreBlueTemp) / playScoreRedTemp / 1000000 * 960) + "px";
 		}
 	}
 	if(!scoreVisibleTemp) {
+		movingScoreBarRight.style.width = "0px";
+		movingScoreBarLeft.style.width = "0px";
 		if(chatLen != data.tourney.manager.chat.length) {
 			// There's new chats that haven't been updated
 			
