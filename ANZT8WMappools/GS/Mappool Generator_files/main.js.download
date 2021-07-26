@@ -1,8 +1,7 @@
 /* Global */
 const teamColor = ["redBorder", "blueBorder"];
 
-/* Image ID */
-/* Images Made By Gala: https://twitter.com/galakey21 */
+/* imgur Image ID */
 const NoModMap = "2YrYs5A";
 const HardRockMap = "HZT3fjO";
 const HiddenMap = "TzTI6Pb";
