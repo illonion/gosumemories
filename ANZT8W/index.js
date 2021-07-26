@@ -217,7 +217,7 @@ socket.onmessage = event => {
 			playScoreBlue.style.backgroundColor = '#ad81db';
 			playScoreRed.style.backgroundColor = '#454545';
 
-			movingScoreBarLeft.style.width = ((playScoreBlueTemp - playScoreRedTemp) / 130000 * 600) + "px";
+			movingScoreBarLeft.style.width = ((playScoreBlueTemp - playScoreRedTemp) / 320000 * 970) + "px";
 			movingScoreBarRight.style.width = "0px";
 		} else if (playScoreBlueTemp == playScoreRedTemp) {
 			// Tie
@@ -232,7 +232,7 @@ socket.onmessage = event => {
 			playScoreRed.style.backgroundColor = '#ad81db';
 			
 			movingScoreBarLeft.style.width = "0px";
-			movingScoreBarRight.style.width = ((playScoreRedTemp - playScoreBlueTemp) / 130000 * 600) + "px";
+			movingScoreBarRight.style.width = ((playScoreRedTemp - playScoreBlueTemp) / 320000 * 970) + "px";
 		}
 	}
 	if(!scoreVisibleTemp) {

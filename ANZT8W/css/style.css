@@ -159,23 +159,14 @@ body,html{
 	border-radius: 25px;
 	box-shadow: 0px 0px 20px -3px black;	
 }
-#nowPlayingContainer {
-	position: absolute;
-	right: 30px;
-	bottom: 60px;
-	width: 400px;
-	height: 100px;
-	text-align: center;
-	align-content: center;
-}
 #movingScoreBarLeft {
 	float:right;
 	height:12px;
 	width:1px;
 	position:absolute;
-	bottom:145px;
+	bottom:160px;
 	right:50%;
-	max-width:30%;
+	max-width:52%;
 	background-color:white;
 	color:white;
 	transition: width 0.07s;
@@ -185,9 +176,9 @@ body,html{
 	height:12px;
 	width:1px;
 	position:absolute;
-	bottom:145px;
+	bottom:160px;
 	left:50%;
-	max-width:30%;
+	max-width:52%;
 	background-color:white;
 	color:white;
 	transition: width 0.07s;
@@ -223,11 +214,20 @@ body,html{
 	
     transition: ease-in-out 500ms;
 }
+#nowPlayingContainer {
+	position: absolute;
+	right: 48px;
+	bottom: 65px;
+	width: 400px;
+	height: 100px;
+	text-align: center;
+	align-content: center;
+}
 #mapContainer {
 	position: relative;
 	margin-top:20px;
 	padding-top: 20px;
-	height: 104px;
+	height: 101px;
 	width: 100%;
 	background-color: black;
     background-size: cover;
@@ -239,6 +239,7 @@ body,html{
 #mapTitle {
 	display:inline-block;
 	position: relative;
+	padding-top:1%;
 	padding-left:5%;
 	width: max-content;
 	white-space: nowrap;
@@ -257,7 +258,7 @@ body,html{
 #overlay {
 	position: fixed;
 	transform: translateY(-20px);
-	height: 124px;
+	height: 121px;
 	width: 400px;
 	z-index: 0;
     background-color: rgba(0,0,0,0.50);
@@ -288,8 +289,8 @@ body,html{
 	position: absolute;
 	left: 513px;
 	width: 900px;
-	height: 133px;
-	bottom: 11px;
+	height: 136px;
+	bottom: 16px;
 	border-radius: 25px;
 	overflow-y: scroll;
 	overflow-x: hidden;
