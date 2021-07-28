@@ -69,7 +69,7 @@ body,html{
 	top: 50px;
     font-size: 30px;
 	display: flex;
-	color: var(--red-color);
+	color: var(--blue-color);
 	height: 100px;
 }
 #scoreNowBlue, #scoreNowRed{
@@ -87,21 +87,21 @@ body,html{
 	top: 50px;
     font-size: 30px;
 	display: flex;
-	color: var(--blue-color);
+	color: var(--red-color);
 }
 #teamBlue {
 	position: absolute;
 	left: 50px;
-	top: 50px;
+	top: 55px;
     font-size: 30px;
-	color: var(--red-color);
+	color: rgb(0, 54, 170);
     transition: ease-in-out 500ms;
-	color: white;
 }
 #teamBlueName {
 	padding: 10px 30px 10px 30px;
 	width: 500px;
-	background-color: var(--red-color);
+	color: white;
+	background-color: var(--blue-color);
 	border-radius: 25px;
 }
 #teamBlueText {
@@ -116,33 +116,25 @@ body,html{
 	top: 50px;
 	text-align: right;
     font-size: 30px;
-	color: var(--blue-color);
+	color: rgb(177, 27, 60);
     transition: ease-in-out 500ms;
-	color: white;
 }
 #teamRedName {
 	padding: 10px 30px 10px 30px;
 	width: 500px;
-	background-color: var(--blue-color);
+	color: white;
+	background-color: var(--red-color);
 	border-radius: 25px;
 }
-#nowPlayingContainer {
-	position: absolute;
-	right: 30px;
-	bottom: -10px;
-	width: 400px;
-	height: 150px;
-	text-align: center;
-	align-content: center;
-}
+
 #movingScoreBarLeft {
 	float:right;
 	height:12px;
-	width:1px;
+	width:50%;
 	position:absolute;
 	bottom:150px;
 	right:50%;
-	max-width:30%;
+	max-width:50%;
 	background-color:white;
 	color:white;
 	transition: width 0.07s;
@@ -150,11 +142,11 @@ body,html{
 }
 #movingScoreBarRight {
 	height:12px;
-	width:1px;
+	width:50%;
 	position:absolute;
 	bottom:150px;
 	left:50%;
-	max-width:30%;
+	max-width:50%;
 	background-color:white;
 	color:white;
 	transition: width 0.07s;
@@ -202,10 +194,19 @@ body,html{
 	
     transition: ease-in-out 500ms;
 }
+#nowPlayingContainer {
+	position: absolute;
+	right: 30px;
+	bottom: -8px;
+	width: 400px;
+	height: 150px;
+	text-align: center;
+	align-content: center;
+}
 #mapContainer {
 	position: relative;
 	padding-top: 20px;
-	height: 100px;
+	height: 110px;
 	width: 100%;
 	background-color: black;
     background-size: cover;
@@ -216,13 +217,23 @@ body,html{
 #overlay {
 	position: fixed;
 	transform: translateY(-20px);
-	height: 120px;
+	height: 130px;
 	width: 400px;
 	z-index: 0;
     background-color: rgba(0,0,0,0.50);
 	border-radius: 25px;
 }
-#mapTitle, #mapDifficulty {
+#mapTitle {
+	position: relative;
+	padding-top: 2%;
+	padding-left:5%;
+	width: 90%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	z-index: 0;
+}
+#mapDifficulty {
 	position: relative;
 	padding-left:5%;
 	width: 90%;
@@ -233,11 +244,12 @@ body,html{
 }
 #chats {
 	position: absolute;
+	background: rgba(0,0,0,0.5);
 	left: 479px;
 	width: 913px;
-	height: 120px;
+	height: 110px;
 	border-radius: 25px;
-	bottom: 2px;
+	bottom: 12px;
 	overflow-y: scroll;
 	overflow-x: hidden;
 	padding: 5px 20px 15px 20px;

@@ -134,37 +134,39 @@ socket.onmessage = event => {
 		teamRedName.innerHTML = teamNameRedTemp;
 	}
 	if(scoreVisibleTemp) {
-		scoreBlueTemp = data.tourney.manager.gameplay.score.left;
-		scoreRedTemp = data.tourney.manager.gameplay.score.right;
+		playScoreBlueTemp = data.tourney.manager.gameplay.score.left;
+		playScoreRedTemp = data.tourney.manager.gameplay.score.right;
 		
-		animation.playScoreBlue.update(scoreBlueTemp);
-		animation.playScoreRed.update(scoreRedTemp);
+		animation.playScoreBlue.update(playScoreBlueTemp);
+		animation.playScoreRed.update(playScoreRedTemp);
 
 		const bgRed = "#f4557a";
 		const bgBlue = "#545fff";
-		const bgGrey = "#ad81db";
+		const bgGrey = "#898989";
+		
+		
 		
 		if(playScoreBlueTemp > playScoreRedTemp) {
 			// Blue is Leading
-			playScoreBlue.style.backgroundColor = bgRed;
+			playScoreBlue.style.backgroundColor = bgBlue;
 			playScoreRed.style.backgroundColor = bgGrey;
 
-			movingScoreBarLeft.style.width = ((playScoreBlueTemp - playScoreRedTemp) / playScoreBlueTemp / 1000000 * 960) + "px";
+			movingScoreBarLeft.style.width = ((playScoreBlueTemp - playScoreRedTemp) / 650000 * 960) + "px";
 			movingScoreBarRight.style.width = "0px";
 		} else if (playScoreBlueTemp == playScoreRedTemp) {
 			// Tie
-			playScoreBlue.style.backgroundColor = bgRed;
-			playScoreRed.style.backgroundColor = bgBlue;
+			playScoreBlue.style.backgroundColor = bgBlue;
+			playScoreRed.style.backgroundColor = bgRed;
 
 			movingScoreBarLeft.style.width = "0px";
 			movingScoreBarRight.style.width = "0px";
 		} else {
 			// Red is Leading
 			playScoreBlue.style.backgroundColor = bgGrey;
-			playScoreRed.style.backgroundColor = bgBlue;
+			playScoreRed.style.backgroundColor = bgRed;
 			
 			movingScoreBarLeft.style.width = "0px";
-			movingScoreBarRight.style.width = ((playScoreRedTemp - playScoreBlueTemp) / playScoreRedTemp / 1000000 * 960) + "px";
+			movingScoreBarRight.style.width = ((playScoreRedTemp - playScoreBlueTemp) / 650000 * 960) + "px";
 		}
 	}
 	if(!scoreVisibleTemp) {
