@@ -3,6 +3,7 @@ let mapid = document.getElementById('mapid');
 
 // NOW PLAYING
 let mapContainer = document.getElementById("mapContainer");
+let mapSong = document.getElementById("mapSong");
 let mapTitle = document.getElementById("mapTitle");
 let mapDifficulty = document.getElementById("mapDifficulty");
 
@@ -57,6 +58,8 @@ let scoreVisibleTemp;
 let starsVisibleTemp;
 
 let tempImg;
+let tempMapSong;
+let tempMapArtist;
 let tempMapName;
 let tempMapDiff;
 
@@ -74,6 +77,7 @@ let tempClass = 'unknown';
 
 socket.onmessage = event => {
     let data = JSON.parse(event.data);
+	console.log(data.menu.bm.metadata.artist);
 	if(scoreVisibleTemp !== data.tourney.manager.bools.scoreVisible) {
 		scoreVisibleTemp = data.tourney.manager.bools.scoreVisible;
 		if(scoreVisibleTemp) {
@@ -103,10 +107,15 @@ socket.onmessage = event => {
         data.menu.bm.path.full = data.menu.bm.path.full.replace(/#/g,'%23').replace(/%/g,'%25').replace(/\\/g,'/');
         mapContainer.style.backgroundImage = `url('http://` + location.host + `/Songs/${data.menu.bm.path.full}?a=${Math.random(10000)}')`;
     }
+	if (tempMapArtist !== data.menu.bm.metadata.artist) {
+		tempMapArtist = data.menu.bm.metadata.artist;
+		tempMapSong = tempMapArtist + " - ";
+	}
     if(tempMapName !== data.menu.bm.metadata.title){
         tempMapName = data.menu.bm.metadata.title;
         mapTitle.innerText = tempMapName;
-		
+		tempMapSong += tempMapName + " ";
+
 		if(mapTitle.getBoundingClientRect().width >= 380) {
 			mapTitle.classList.add("wrap");
 		} else {
@@ -116,6 +125,8 @@ socket.onmessage = event => {
     if(tempMapDiff !== '[' + data.menu.bm.metadata.difficulty + ']'){
         tempMapDiff = '[' + data.menu.bm.metadata.difficulty + ']';
         mapDifficulty.innerText = tempMapDiff;
+		tempMapSong += tempMapDiff;
+		mapSong.innerText = tempMapSong;
     }
 	if (bestOfTemp !== Math.ceil(data.tourney.manager.bestOF / 2) || scoreBlueTemp !== data.tourney.manager.stars.left || scoreRedTemp !== data.tourney.manager.stars.right) {
 		
@@ -217,7 +228,7 @@ socket.onmessage = event => {
 			playScoreBlue.style.backgroundColor = '#ad81db';
 			playScoreRed.style.backgroundColor = '#454545';
 
-			movingScoreBarLeft.style.width = ((playScoreBlueTemp - playScoreRedTemp) / 320000 * 970) + "px";
+			movingScoreBarLeft.style.width = ((playScoreBlueTemp - playScoreRedTemp) / 300000 * 960) + "px";
 			movingScoreBarRight.style.width = "0px";
 		} else if (playScoreBlueTemp == playScoreRedTemp) {
 			// Tie
@@ -232,7 +243,7 @@ socket.onmessage = event => {
 			playScoreRed.style.backgroundColor = '#ad81db';
 			
 			movingScoreBarLeft.style.width = "0px";
-			movingScoreBarRight.style.width = ((playScoreRedTemp - playScoreBlueTemp) / 320000 * 970) + "px";
+			movingScoreBarRight.style.width = ((playScoreRedTemp - playScoreBlueTemp) / 300000 * 960) + "px";
 		}
 	}
 	if(!scoreVisibleTemp) {
