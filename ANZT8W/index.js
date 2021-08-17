@@ -7,6 +7,11 @@ let mapSong = document.getElementById("mapSong");
 let mapTitle = document.getElementById("mapTitle");
 let mapDifficulty = document.getElementById("mapDifficulty");
 
+let cs = document.getElementById("cs");
+let ar = document.getElementById("ar");
+let od = document.getElementById("od");
+let hp = document.getElementById("hp");
+
 // FOR FLAGS
 let teamBlueFlag = document.getElementById("flagIconBlue");
 let teamRedFlag = document.getElementById("flagIconRed");
@@ -63,6 +68,11 @@ let tempMapArtist;
 let tempMapName;
 let tempMapDiff;
 
+let tempCs;
+let tempAr;
+let tempOd;
+let tempHp;
+
 let scoreBlueTemp;
 let scoreRedTemp;
 let scoreEvent;
@@ -77,7 +87,7 @@ let tempClass = 'unknown';
 
 socket.onmessage = event => {
     let data = JSON.parse(event.data);
-	console.log(data.menu.bm.metadata.artist);
+	console.log(data);
 	if(scoreVisibleTemp !== data.tourney.manager.bools.scoreVisible) {
 		scoreVisibleTemp = data.tourney.manager.bools.scoreVisible;
 		if(scoreVisibleTemp) {
@@ -128,6 +138,24 @@ socket.onmessage = event => {
 		tempMapSong += tempMapDiff;
 		mapSong.innerText = tempMapSong;
     }
+
+	if(data.menu.bm.stats.CS != tempCs){
+        tempCs = data.menu.bm.stats.CS;
+        cs.innerHTML= `${Math.round(tempCs * 10) / 10}`;
+    }
+    if(data.menu.bm.stats.AR != tempAr){
+        tempAr = data.menu.bm.stats.AR;
+        ar.innerHTML= `${Math.round(tempAr * 10) / 10}`;
+    }
+    if(data.menu.bm.stats.OD != tempOd){
+        tempOd = data.menu.bm.stats.OD;
+        od.innerHTML= `${Math.round(tempOd * 10) / 10}`;
+    }
+    if(data.menu.bm.stats.HP != tempHp){
+        tempHp = data.menu.bm.stats.HP;
+        hp.innerHTML= `${Math.round(tempHp * 10) / 10}`;
+    }
+
 	if (bestOfTemp !== Math.ceil(data.tourney.manager.bestOF / 2) || scoreBlueTemp !== data.tourney.manager.stars.left || scoreRedTemp !== data.tourney.manager.stars.right) {
 		
 		// Courtesy of Victim-Crasher
