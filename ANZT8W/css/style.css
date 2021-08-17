@@ -220,6 +220,8 @@ body,html{
 	
     transition: ease-in-out 500ms;
 }
+
+
 #nowPlayingContainer {
 	position: absolute;
 	right: 48px;
@@ -229,6 +231,39 @@ body,html{
 	text-align: center;
 	align-content: center;
 }
+
+#mapStatus{
+    font-size: 24px;
+    position: absolute;
+    top: 15px;
+	right: 15px;
+    display: flex;
+    justify-content: space-around;
+    width: 200px;
+    text-align: center;
+    transition: ease-in-out 500ms;
+}
+.status {
+    
+    width: calc(max-content + 100px);
+	width: 100%;
+	margin-left: 2px;
+	margin-right: 2px;
+	border-radius: 5px;
+}
+#csCont{
+    background-color: #9C9236;
+}
+#arCont{
+    background-color: #4A9C36;
+}
+#odCont{
+    background-color: #36849C;
+}
+#hpCont{
+    background-color: #9C365B;
+}
+
 #mapContainer {
 	position: relative;
 	margin-top:20px;

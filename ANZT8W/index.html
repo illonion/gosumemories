@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/odometr.css">
+    <script src="deps/odometr.js"></script>
     <script src="deps/countUp.js"></script>
 	<script src="deps/reconnecting-websocket.min.js"></script>
 
@@ -39,6 +41,20 @@
 					<div id="overlay"></div>
 					<div id="mapTitle"></div>
 					<div id="mapDifficulty"></div>
+				</div>
+				<div id="mapStatus">
+					<div id="csCont" class="status">CS<br>
+						<span id="cs" class="odometer"></span>
+					</div>
+					<div id="arCont" class="status">AR
+						<span id="ar" class="odometer"></span>
+					</div>
+					<div id="odCont" class="status">OD
+						<span id="od" class="odometer"></span>
+					</div>
+					<div id="hpCont" class="status">HP
+						<span id="hp" class="odometer"></span>
+					</div>
 				</div>
 			</div>
 		</div>
